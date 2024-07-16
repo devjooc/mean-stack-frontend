@@ -1,0 +1,45 @@
+<form autocomplete="off" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+    <!-- name -->
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" id="employeeName" [formControl]="nameControl" required>
+        <label for="employeeName">Employee Name</label>
+        <!-- errors -->
+        <div class="alert alert-danger" *ngIf="nameControl.invalid && (nameControl.dirty)">
+            {{nameControl.errors | formValidator}}
+        </div>
+    </div>
+
+    <!-- position -->
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" id="employeePosition" [formControl]="positionControl" required>
+        <label for="employeePosition">Position</label>
+        <!-- errors -->
+        <div class="alert alert-danger" *ngIf="positionControl.invalid && (positionControl.dirty)">
+            {{positionControl.errors | formValidator}}
+        </div>
+    </div>
+
+    <!-- level -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio" [formControl]="levelControl" required value="junior"
+               id="junior">
+        <label class="form-check-label" for="junior">Junior</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" [formControl]="levelControl" required value="mid" id="mid">
+        <label class="form-check-label" for="mid">Mid</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" [formControl]="levelControl" required value="senior"
+               id="senior">
+        <label class="form-check-label" for="senior">Senior</label>
+    </div>
+
+    <!-- submit button -->
+    <div class="d-grid gap-2 mt-3">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="employeeForm.invalid">Submit</button>
+    </div>
+
+
+</form>

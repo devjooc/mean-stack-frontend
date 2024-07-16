@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2 class="text-center">Employees list</h2>
+
+
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Level</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let employee of employees$ | async">
+            <td>{{employee.name}}</td>
+            <td>{{employee.position}}</td>
+            <td>{{employee.level}}</td>
+            <!-- actions buttons -->
+            <td>
+                <button class="btn btn-primary me-3" [routerLink]="['edit', employee._id]">
+                    Edit
+                </button>
+                <button class="btn btn-danger me-1" (click)="onClickDelete(employee._id)">
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                          *ngIf="removalInProgress[employee._id!]"></span>
+                    Remove
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" [routerLink]="['new']">
+        Add New Employee
+    </button>
+
+</div>

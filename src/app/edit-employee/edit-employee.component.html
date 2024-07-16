@@ -1,0 +1,13 @@
+<div class="w-25 m-auto">
+
+    <h2 class="text-center mb-3">Edit employee</h2>
+
+
+    <!-- employee form -->
+    <app-employee-form [initialState]="employee" (formSubmitted)="editEmployee($event)"></app-employee-form>
+
+    <div class="alert alert-danger" *ngIf="showErrMsg">
+        {{errMsg}}
+    </div>
+
+</div>

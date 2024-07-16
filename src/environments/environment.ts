@@ -1,3 +1,3 @@
 export const environment = {
-    baseUrl: 'http://localhost:3000' // TODO change
+    baseUrl: 'https://mean-stack-backend-5w4s.onrender.com'
 };
